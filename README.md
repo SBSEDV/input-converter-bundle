@@ -28,6 +28,7 @@ sbsedv_input_converter:
         file_support: false # Whether file uploads are added to the FileBag
 
     urlencoded_converter:
+        enabled: false # disabled by default, see below
         content_types: [application/x-www-urlencoded]
         methods: [PUT, PATCH, DELETE]
 ```
@@ -48,3 +49,12 @@ If you want to register a custom converter (e.g. for YAML support), you only hav
 The bundle has autoconfiguration setup and each service that implements that interface will automatically be picked up.
 
 ---
+
+### URLEncoded Converter Information
+
+By default, the `urlencoded_converter` is disabled because `Symfony\Component\HttpFoundation\Request::createFromGlobals()` has the same functionality.
+
+Because the vast majority of symfony applications boot up the framework in a way that creates the Request object with this static method, this bundles
+disables its functionality by default to avoid the extra work.
+
+In case you boot symfony without calling this method (e.g. in a runtime like Swoole), you can enable it manually in the bundles config file.

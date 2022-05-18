@@ -35,25 +35,6 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end() // json_converter
 
-                ->arrayNode('urlencoded_converter')
-                    ->treatTrueLike(['enabled' => true])
-                    ->treatFalseLike(['enabled' => false])
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->booleanNode('enabled')->defaultTrue()->end()
-                        ->arrayNode('content_types')
-                            ->info('The Content-Type headers on which this converter should act upon.')
-                            ->prototype('scalar')->end()
-                            ->defaultValue(['application/x-www-urlencoded'])
-                        ->end()
-                        ->arrayNode('methods')
-                            ->info('The HTTP-methods on which this converter should act upon.')
-                            ->prototype('scalar')->end()
-                            ->defaultValue(['PUT', 'PATCH', 'DELETE'])
-                        ->end()
-                    ->end()
-                ->end() // urlencoded_converter
-
                 ->arrayNode('formdata_converter')
                     ->treatTrueLike(['enabled' => true])
                     ->treatFalseLike(['enabled' => false])
@@ -71,6 +52,25 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end() // formdata_converter
+
+                ->arrayNode('urlencoded_converter')
+                    ->treatTrueLike(['enabled' => true])
+                    ->treatFalseLike(['enabled' => false])
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('enabled')->defaultFalse()->end()
+                        ->arrayNode('content_types')
+                            ->info('The Content-Type headers on which this converter should act upon.')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(['application/x-www-urlencoded'])
+                        ->end()
+                        ->arrayNode('methods')
+                            ->info('The HTTP-methods on which this converter should act upon.')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(['PUT', 'PATCH', 'DELETE'])
+                        ->end()
+                    ->end()
+                ->end() // urlencoded_converter
             ->end()
         ;
 
