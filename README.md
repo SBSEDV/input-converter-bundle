@@ -12,7 +12,7 @@ and to add it to the main http-foundation request object.
 By default this bundle comes with the following converters which are all enabled by default:
 
 ```yaml
-# config/packages/sbsedv_extra.yaml
+# config/packages/sbsedv_input_converter.yaml
 
 # Default configuration values are shown
 
