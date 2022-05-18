@@ -20,7 +20,7 @@ sbsedv_input_converter:
     # {NAME}_converter: false # disables the {NAME} converter
 
     json_converter:
-        content_types: [application/json] # Http Content-Type headers on which this converter is work
+        content_types: [application/json] # Http Content-Type headers on which this converter will work
         methods: [POST, PUT, PATCH, DELETE] # Http Methods on which this convert will work
 
     formdata_converter:
@@ -50,11 +50,11 @@ The bundle has autoconfiguration setup and each service that implements that int
 
 ---
 
-### URLEncoded Converter Information
+## **URLEncoded Converter Information**
 
 By default, the `urlencoded_converter` is disabled because `Symfony\Component\HttpFoundation\Request::createFromGlobals()` has the same functionality.
 
-Because the vast majority of symfony applications boot up the framework in a way that creates the Request object with this static method, this bundles
-disables its functionality by default to avoid the extra work.
+The vast majority of symfony applications boot up the framework in a way that creates the Request object with this static method. 
+Because of this, the bundle disables its functionality by default to avoid unneccessary work.
 
-In case you boot symfony without calling this method (e.g. in a runtime like Swoole), you can enable it manually in the bundles config file.
+In case you boot symfony without calling this method (e.g. in a runtime like [Swoole](https://github.com/php-runtime/swoole)), you can enable the functionality manually in the bundles config file.
