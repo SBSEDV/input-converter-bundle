@@ -1,0 +1,38 @@
+{
+    "name": "sbsedv/input-converter-bundle",
+    "description": "A Symfony ^6.0 bundle that adds the raw request body input to the http-foundation InputBag.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Burger",
+            "homepage": "https://github.com/danielburger1337"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SBSEDV\\Bundle\\InputConverterBundle\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "sbsedv/input-converter": "^1.0",
+        "symfony/framework-bundle": "^6.0"
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^1.4",
+        "phpstan/phpstan-symfony": "^1.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
+}
