@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace SBSEDV\Bundle\InputConverterBundle\EventListener;
+namespace SBSEDV\Bundle\InputConverterBundle\EventSubscriber;
 
 use SBSEDV\Component\InputConverter\Exception\MalformedContentException;
 use SBSEDV\Component\InputConverter\Exception\UnsupportedRequestException;
@@ -9,7 +9,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
-final class ConvertInputEventListener implements EventSubscriberInterface
+final class ConvertInputEventSubscriber implements EventSubscriberInterface
 {
     public function __construct(
         private InputConverter $inputConverter
