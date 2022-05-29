@@ -1,6 +1,6 @@
 # sbsedv/input-converter-bundle
 
-A [Symfony ^6.0](https://symfony.com/) bundle that adds the raw request body input to the http-foundation InputBag.
+A [Symfony ^6.1](https://symfony.com/) bundle that adds the raw request body input to the http-foundation InputBag.
 
 ---
 
@@ -54,7 +54,7 @@ The bundle has autoconfiguration setup and each service that implements that int
 
 By default, the `urlencoded_converter` is disabled because `Symfony\Component\HttpFoundation\Request::createFromGlobals()` has the same functionality.
 
-The vast majority of symfony applications boot up the framework in a way that creates the Request object with this static method. 
+The vast majority of symfony applications boot up the framework in a way that creates the Request object with this static method.
 Because of this, the bundle disables its functionality by default to avoid unneccessary work.
 
 In case you boot symfony without calling this method (e.g. in a runtime like [Swoole](https://github.com/php-runtime/swoole)), you can enable the functionality manually in the bundles config file.

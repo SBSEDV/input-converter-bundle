@@ -1,6 +1,6 @@
 {
     "name": "sbsedv/input-converter-bundle",
-    "description": "A Symfony ^6.0 bundle that adds the raw request body input to the http-foundation InputBag.",
+    "description": "A Symfony ^6.1 bundle that adds the raw request body input to the http-foundation InputBag.",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
