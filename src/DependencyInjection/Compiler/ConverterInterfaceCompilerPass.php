@@ -2,7 +2,7 @@
 
 namespace SBSEDV\Bundle\InputConverterBundle\DependencyInjection\Compiler;
 
-use SBSEDV\Component\InputConverter\InputConverter;
+use SBSEDV\InputConverter\InputConverter;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;

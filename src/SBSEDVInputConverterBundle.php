@@ -3,7 +3,7 @@
 namespace SBSEDV\Bundle\InputConverterBundle;
 
 use SBSEDV\Bundle\InputConverterBundle\DependencyInjection\Compiler\ConverterInterfaceCompilerPass;
-use SBSEDV\Component\InputConverter\Converter;
+use SBSEDV\InputConverter\Converter;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -36,7 +36,7 @@ class SBSEDVInputConverterBundle extends AbstractBundle
         if ($config['formdata_converter']['enabled']) {
             $container->import('../config/services/formdata_converter.php');
             $container->services()
-                ->get(Converter\FormData::class)
+                ->get(Converter\FormDataConverter::class)
                 ->arg('$methods', $config['formdata_converter']['methods'])
                 ->arg('$fileSupport', $config['formdata_converter']['file_support'])
             ;
@@ -45,7 +45,7 @@ class SBSEDVInputConverterBundle extends AbstractBundle
         if ($config['json_converter']['enabled'] === true) {
             $container->import('../config/services/json_converter.php');
             $container->services()
-                ->get(Converter\JSON::class)
+                ->get(Converter\JsonConverter::class)
                 ->arg('$contentTypes', $config['json_converter']['content_types'])
                 ->arg('$methods', $config['json_converter']['methods'])
             ;
@@ -54,8 +54,7 @@ class SBSEDVInputConverterBundle extends AbstractBundle
         if ($config['urlencoded_converter']['enabled'] === true) {
             $container->import('../config/services/urlencoded_converter.php');
             $container->services()
-                ->get(Converter\UrlEncoded::class)
-                ->arg('$contentTypes', $config['urlencoded_converter']['content_types'])
+                ->get(Converter\UrlEncodedConverter::class)
                 ->arg('$methods', $config['urlencoded_converter']['methods'])
             ;
         }

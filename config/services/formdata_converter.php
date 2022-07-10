@@ -2,11 +2,11 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use SBSEDV\Component\InputConverter\Converter\FormData;
+use SBSEDV\InputConverter\Converter\FormDataConverter;
 
 return function (ContainerConfigurator $container): void {
     $container->services()
-        ->set(FormData::class)
+        ->set(FormDataConverter::class)
             ->args([
                 '$methods' => abstract_arg('The HTTP-methods that this converter should listen to.'),
                 '$fileSupport' => abstract_arg('Whether file uploads are supported.'),

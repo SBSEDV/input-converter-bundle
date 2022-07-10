@@ -3,7 +3,7 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use SBSEDV\Bundle\InputConverterBundle\EventSubscriber\ConvertInputEventSubscriber;
-use SBSEDV\Component\InputConverter\InputConverter;
+use SBSEDV\InputConverter\InputConverter;
 
 return function (ContainerConfigurator $container): void {
     $container->services()

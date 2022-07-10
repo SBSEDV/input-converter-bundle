@@ -16,7 +16,7 @@
     },
     "require": {
         "php": ">=8.1",
-        "sbsedv/input-converter": "^1.0",
+        "sbsedv/input-converter": "^2.0",
         "symfony/framework-bundle": "^6.1"
     },
     "require-dev": {

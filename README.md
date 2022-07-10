@@ -29,7 +29,6 @@ sbsedv_input_converter:
 
     urlencoded_converter:
         enabled: false # disabled by default, see below
-        content_types: [application/x-www-urlencoded]
         methods: [PUT, PATCH, DELETE]
 ```
 
@@ -44,13 +43,13 @@ You should only rely on PHPs integrated file upload support.
 
 ## **Custom Converters**
 
-If you want to register a custom converter (e.g. for YAML support), you only have to register a service in your application that implements the `SBSEDV\Component\InputConverter\Converter\ConverterInterface`.
+If you want to register a custom converter (e.g. for YAML support), you only have to register a service in your application that implements the `SBSEDV\InputConverter\Converter\ConverterInterface`.
 
 The bundle has autoconfiguration setup and each service that implements that interface will automatically be picked up.
 
 ---
 
-## **URLEncoded Converter Information**
+## **URLEncodedConverter Information**
 
 By default, the `urlencoded_converter` is disabled because `Symfony\Component\HttpFoundation\Request::createFromGlobals()` has the same functionality.
 

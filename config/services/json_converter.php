@@ -2,11 +2,11 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use SBSEDV\Component\InputConverter\Converter\JSON;
+use SBSEDV\InputConverter\Converter\JsonConverter;
 
 return function (ContainerConfigurator $container): void {
     $container->services()
-        ->set(JSON::class)
+        ->set(JsonConverter::class)
             ->args([
                 '$contentTypes' => abstract_arg('The HTTP-content-types that this converter should listen to.'),
                 '$methods' => abstract_arg('The HTTP-methods that this converter should listen to.'),
