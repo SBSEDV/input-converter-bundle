@@ -45,7 +45,7 @@ final class ConvertInputEventSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            RequestEvent::class => ['onKernelRequest', 4096],
+            RequestEvent::class => ['onKernelRequest', \PHP_INT_MAX],
         ];
     }
 }
