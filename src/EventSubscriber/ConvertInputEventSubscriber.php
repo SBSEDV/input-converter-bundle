@@ -5,6 +5,7 @@ namespace SBSEDV\Bundle\InputConverterBundle\EventSubscriber;
 use SBSEDV\InputConverter\Exception\MalformedContentException;
 use SBSEDV\InputConverter\Exception\UnsupportedRequestException;
 use SBSEDV\InputConverter\InputConverter;
+use SBSEDV\InputConverter\Request\HttpFoundationRequest;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -27,20 +28,10 @@ final class ConvertInputEventSubscriber implements EventSubscriberInterface
             return;
         }
 
-        $request = $event->getRequest();
-
         try {
-            $parsedInput = $this->inputConverter->convert($request);
-
-            foreach ($parsedInput->getValues() as $key => $value) {
-                $request->request->set($key, $value);
-            }
-
-            foreach ($parsedInput->getFiles() as $key => $value) {
-                $request->files->set($key, $value);
-            }
-
-            $request->attributes->set('_input_converter', $parsedInput->getConverterName());
+            $this->inputConverter->convert(
+                new HttpFoundationRequest($event->getRequest())
+            );
         } catch (MalformedContentException $e) {
             throw new BadRequestException($e->getMessage(), previous: $e);
         } catch (UnsupportedRequestException) {
