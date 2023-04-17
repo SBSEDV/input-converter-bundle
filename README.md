@@ -1,3 +1,6 @@
+[![PHPStan](https://github.com/SBSEDV/input-converter-bundle/actions/workflows/phpstan.yml/badge.svg)](https://github.com/SBSEDV/input-converter-bundle/actions/workflows/phpstan.yml)
+[![PHPCS-Fixer](https://github.com/SBSEDV/input-converter-bundle/actions/workflows/phpcsfixer.yml/badge.svg)](https://github.com/SBSEDV/input-converter-bundle/actions/workflows/phpcsfixer.yml)
+
 # sbsedv/input-converter-bundle
 
 A [Symfony ^6.1](https://symfony.com/) bundle that adds the raw request body input to the http-foundation InputBag.
