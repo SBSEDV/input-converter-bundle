@@ -5,6 +5,10 @@
 
 A [Symfony ^6.1](https://symfony.com/) bundle that adds the raw request body input to the http-foundation InputBag.
 
+```shell
+composer require sbsedv/input-converter-bundle
+```
+
 ---
 
 This bundle integrates [sbsedv/input-converter](https://github.com/SBSEDV/input-converter-php) into the [Symfony Framework](https://symfony.com/).
