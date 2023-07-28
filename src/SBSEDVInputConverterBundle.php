@@ -11,9 +11,6 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class SBSEDVInputConverterBundle extends AbstractBundle
 {
-    /**
-     * {@inheritdoc}
-     */
     public function configure(DefinitionConfigurator $definition): void
     {
         $definition->import('../config/definitions/formdata_converter.php');
@@ -21,9 +18,6 @@ class SBSEDVInputConverterBundle extends AbstractBundle
         $definition->import('../config/definitions/urlencoded_converter.php');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         $builder
@@ -60,9 +54,6 @@ class SBSEDVInputConverterBundle extends AbstractBundle
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new ConverterInterfaceCompilerPass());

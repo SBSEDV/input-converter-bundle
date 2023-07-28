@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 final class ConvertInputEventSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        private InputConverter $inputConverter
+        private readonly InputConverter $inputConverter
     ) {
     }
 
@@ -39,9 +39,6 @@ final class ConvertInputEventSubscriber implements EventSubscriberInterface
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function getSubscribedEvents(): array
     {
         return [

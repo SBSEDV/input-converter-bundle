@@ -9,9 +9,6 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class ConverterInterfaceCompilerPass implements CompilerPassInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function process(ContainerBuilder $container): void
     {
         $converter = $container->getDefinition(InputConverter::class);
